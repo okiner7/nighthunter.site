@@ -3,7 +3,7 @@
     "short_name": "NightHunter",
     "icons": [
     {
-      "src": "icons/moon-white-512.png",
+      "src": "icons/moon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
@@ -16,5 +16,6 @@
   ],
     "start_url": "index.html",
     "display": "fullscreen",
-    "prefer_related_applications":  true
+    "prefer_related_applications":  true,
+    "background_color": "#FFFFFF"
 }
