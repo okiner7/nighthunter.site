@@ -4,14 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="nighthunter.webmanifest">
     <link rel="shortcut icon" href="icons/moon-32.png" type="image/png">
+    <link rel="stylesheet" href="css/main.css">
     <title>NightHunter</title>
 </head>
 <body>
     <h1>TEEEST1</h1>
-    <div>
-
-    </divv>
-    <video id="qr-video"></video>
+    <div class="vidio-container">
+        <video id="qr-video"></video>
+    </div>
+    <div id="cam-qr-result">NO</div>
     <script type="module">
         import QrScanner from '/nighthunter.site/js/qr-scanner/qr-scanner.min.js'; 
         const video = document.getElementById('qr-video');
