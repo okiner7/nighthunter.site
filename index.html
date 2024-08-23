@@ -2,39 +2,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="nighthunter.webmanifest">
     <link rel="shortcut icon" href="icons/moon-32.png" type="image/png">
-    <link rel="stylesheet" href="css/main.css">
-    <title>NightHunter</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/Comfortaa/comfortaa.css">
+    <title>Scan QR to connect</title>
 </head>
 <body>
-    <h1>TEEEST1</h1>
-    <div id="vidio-container">
-        <video id="qr-video" width="320" height="240"></video>
+    
+    <div id="popup-qr-overlay">
+        <div id="qr-popup">
+            <h2>SCAN QR CODE</h2>
+            <iframe src="qr.html" frameborder="0"></iframe>
+        </div>
     </div>
-    <div id="cam-qr-result"></div>
-    <script type="module">
-        import QrScanner from '/nighthunter.site/js/qr-scanner/qr-scanner.min.js'; 
-        const video = document.getElementById('qr-video');
-        const camQrResult = document.getElementById('cam-qr-result');
-
-        function setResult(label, result) {
-            console.log(result.data);
-            label.textContent = result.data;
-            label.style.color = 'teal';
-            scanner.stop();
-        }
-
-        const scanner = new QrScanner(video, result => setResult(camQrResult, result), {
-            onDecodeError: error => {
-                camQrResult.textContent = error;
-                camQrResult.style.color = 'inherit';
-            },
-            highlightScanRegion: true,
-            highlightCodeOutline: true,
-        });
-
-        scanner.start();
+    <script>
+        const popupOverlay = document.getElementById("popup-qr-overlay");
+        const popup = document.getElementById("qr-popup");
+        
+       
     </script>
 </body>
 </html>
