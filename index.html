@@ -8,16 +8,32 @@
 </head>
 <body>
     <h1>TEEEST1</h1>
+    <div>
+
+    </divv>
     <video id="qr-video"></video>
     <script type="module">
-        import QrScanner from '/nighthunter.site/js/qr-scanner/qr-scanner.min.js'; 
+        import QrScanner from '/js/qr-scanner/qr-scanner.min.js'; 
         const video = document.getElementById('qr-video');
-        const qrScanner = new QrScanner(
-            video,
-            result => console.log('decoded qr code:', result),
-            // No options provided. This will use the old api and is deprecated in the current version until next major version.
-        );
-        qrScanner.start();
+        const camQrResult = document.getElementById('cam-qr-result');
+
+        function setResult(label, result) {
+            console.log(result.data);
+            label.textContent = result.data;
+            label.style.color = 'teal';
+            label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+        }
+
+        const scanner = new QrScanner(video, result => setResult(camQrResult, result), {
+            onDecodeError: error => {
+                camQrResult.textContent = error;
+                camQrResult.style.color = 'inherit';
+            },
+            highlightScanRegion: true,
+            highlightCodeOutline: true,
+        });
+
+        scanner.start();
     </script>
 </body>
 </html>
